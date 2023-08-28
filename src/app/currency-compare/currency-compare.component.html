@@ -1,0 +1,80 @@
+<div class="wrapper">
+    <div class="screens"></div>
+    <form action="#">
+    <div class="fields">
+        <div class="field">
+        <div class="amount">
+            <p class="amount-text">Amount</p>
+            <input
+            class="amount-input"
+            type="text"
+            [(ngModel)]="amount"
+            name="amount"
+            />
+        </div>
+        <div class="select-box">
+            <div class="select-field">
+            <p>From</p>
+            <div class="img">
+                <app-currency-selector
+                #from1
+                [selectorId]="'selectedFromCurrency'"
+                [changeCurrency]="selectFrom1"
+            ></app-currency-selector>
+
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="field">
+        <div class="select-box">
+            <div class="select-field">
+            <p>Target Currency</p>
+            <div class="Target-Currency">
+                <div class="img">
+                <app-currency-selector
+                #to_one
+                [selectorId]="'selectedFirstTargetCurrency'"
+                [changeCurrency]="select_to_one"
+            ></app-currency-selector>
+                </div>
+                <div class="img">
+                    <p>Target Currency</p>
+                <app-currency-selector
+                #to_two
+                [selectorId]="'selectedSecondTargetCurrency'"
+                [changeCurrency]="select_to_two"
+            ></app-currency-selector>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="field">
+        <div class="amount">
+            <p class="amount-text">Amount</p>
+            <input
+            class="amount-input"
+            type="text"
+            [(ngModel)]="convertedAmountFirstTarget"
+            [readonly]="true"
+            name="convertedAmountFirstTarget"
+            />
+        </div>
+        <div class="amount">
+            <p class="amount-text">Amount</p>
+            <input
+            class="amount-input"
+            type="text"
+            [(ngModel)]="convertedAmountSecondTarget"
+            [readonly]="true"
+            name="convertedAmountSecondTarget"
+            />
+        </div>
+        </div>
+        <button class="Compare" (click)="compareCurrencies()">Compare</button>
+    </div>
+    </form>
+</div>
